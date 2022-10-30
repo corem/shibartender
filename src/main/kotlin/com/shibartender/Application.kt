@@ -1,9 +1,9 @@
-package com.sibartender
+package com.shibartender
 
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import com.sibartender.plugins.*
+import com.shibartender.plugins.*
 
 fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)

@@ -1,11 +1,11 @@
-package com.sibartender
+package com.shibartender
 
 import io.ktor.http.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import kotlin.test.*
 import io.ktor.server.testing.*
-import com.sibartender.plugins.*
+import com.shibartender.plugins.*
 
 class ApplicationTest {
     @Test

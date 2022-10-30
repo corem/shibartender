@@ -1,4 +1,4 @@
-package com.sibartender.error
+package com.shibartender.error
 
 import kotlinx.serialization.Serializable
 

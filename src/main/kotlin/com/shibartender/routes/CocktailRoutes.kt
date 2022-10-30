@@ -1,9 +1,9 @@
-package com.sibartender.routes
+package com.shibartender.routes
 
-import com.sibartender.dto.CocktailDto
-import com.sibartender.error.ErrorResponse
-import com.sibartender.model.Cocktail
-import com.sibartender.service.CocktailService
+import com.shibartender.dto.CocktailDto
+import com.shibartender.error.ErrorResponse
+import com.shibartender.model.Cocktail
+import com.shibartender.service.CocktailService
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*

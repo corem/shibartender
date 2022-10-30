@@ -1,4 +1,4 @@
-package com.sibartender.model
+package com.shibartender.model
 
 import kotlinx.serialization.Serializable
 

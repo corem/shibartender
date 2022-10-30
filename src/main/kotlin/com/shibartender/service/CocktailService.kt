@@ -1,6 +1,6 @@
-package com.sibartender.service
+package com.shibartender.service
 
-import com.sibartender.model.Cocktail
+import com.shibartender.model.Cocktail
 import org.bson.types.ObjectId
 import org.litote.kmongo.*
 import org.litote.kmongo.id.toId

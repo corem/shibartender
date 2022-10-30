@@ -1,4 +1,4 @@
-package com.sibartender.plugins
+package com.shibartender.plugins
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.plugins.contentnegotiation.*

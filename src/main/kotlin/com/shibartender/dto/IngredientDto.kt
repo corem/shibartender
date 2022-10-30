@@ -1,4 +1,4 @@
-package com.sibartender.dto
+package com.shibartender.dto
 
 import kotlinx.serialization.Serializable
 
