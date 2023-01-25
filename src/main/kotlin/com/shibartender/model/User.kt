@@ -5,4 +5,4 @@ import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id
 
 @Serializable
-data class Cocktail(@BsonId val id: Id<Cocktail>? = null, val name: String, val ingredients: List<Ingredient>, val method: String, val garnish: String)
+data class User(@BsonId val id: Id<User>? = null, val username: String, val password: String)

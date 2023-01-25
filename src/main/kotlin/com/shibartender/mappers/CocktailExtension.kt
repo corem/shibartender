@@ -5,7 +5,7 @@ fun Cocktail.toDto(): CocktailDto =
     CocktailDto(
         id = this.id.toString(),
         name = this.name,
-        // ingredients = this.ingredients,
+        ingredients = this.ingredients,
         method = this.method,
         garnish = this.garnish
     )
@@ -13,7 +13,7 @@ fun Cocktail.toDto(): CocktailDto =
 fun CocktailDto.toCocktail(): Cocktail =
     Cocktail(
         name = this.name,
-        // ingredients = this.ingredients,
+        ingredients = this.ingredients,
         method = this.method,
         garnish = this.garnish
     )
