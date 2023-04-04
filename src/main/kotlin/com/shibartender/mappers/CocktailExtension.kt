@@ -1,5 +1,5 @@
 import com.shibartender.dto.CocktailDto
-import com.shibartender.model.Cocktail
+import model.drink.Cocktail
 
 fun Cocktail.toDto(): CocktailDto =
     CocktailDto(

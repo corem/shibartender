@@ -1,4 +1,4 @@
-package com.shibartender.model
+package model.drink
 
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
