@@ -8,7 +8,7 @@ import org.koin.core.component.inject
 import org.litote.kmongo.*
 import org.litote.kmongo.id.toId
 
-interface UserRepositoryInterface : KoinComponent {
+interface UserRepository {
     fun create(user: User): Id<User>?
     fun findAll(): List<User>
     fun findById(id: String): User?
@@ -16,8 +16,8 @@ interface UserRepositoryInterface : KoinComponent {
     fun deleteById(id: String): Boolean
 }
 
-class UserRepository : UserRepositoryInterface {
-    private val client: MongoClient by inject()
+class UserRepositoryImpl(client: MongoClient) : UserRepository {
+//    private val client: MongoClient by inject()
     private val database = client.getDatabase("user")
     private val userCollection = database.getCollection<User>()
 

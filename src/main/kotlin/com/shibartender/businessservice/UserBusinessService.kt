@@ -1,12 +1,11 @@
 package com.shibartender.businessservice
 
 import com.shibartender.data.UserRepository
+import com.shibartender.data.UserRepositoryImpl
 import model.account.User
 import org.litote.kmongo.Id
 
-class UserBusinessService {
-    private val userRepository: UserRepository = UserRepository()
-
+class UserBusinessService(private val userRepository: UserRepository) {
     fun create(user: User): Id<User>? {
         return userRepository.create(user)
     }

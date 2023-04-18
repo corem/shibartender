@@ -4,8 +4,7 @@ import com.shibartender.data.CocktailRepository
 import model.drink.Cocktail
 import org.litote.kmongo.Id
 
-class CocktailBusinessService {
-    private val cocktailRepository: CocktailRepository= CocktailRepository()
+class CocktailBusinessService(private val cocktailRepository: CocktailRepository) {
 
     fun create(cocktail: Cocktail): Id<Cocktail>? {
         return cocktailRepository.create(cocktail)

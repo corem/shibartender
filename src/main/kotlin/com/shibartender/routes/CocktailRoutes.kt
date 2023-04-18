@@ -10,12 +10,15 @@ import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import org.koin.ktor.ext.inject
 import toCocktail
 import toDto
 
-val cocktailBusinessService = CocktailBusinessService()
+
 
 fun Route.cocktailRouting() {
+    val cocktailBusinessService by inject<CocktailBusinessService>()
+
     authenticate("auth-jwt") {
         route("/cocktail") {
             get {

@@ -8,7 +8,7 @@ import org.koin.core.component.inject
 import org.litote.kmongo.*
 import org.litote.kmongo.id.toId
 
-interface CocktailRepositoryInterface : KoinComponent {
+interface CocktailRepository {
     fun create(cocktail: Cocktail): Id<Cocktail>?
     fun findAll(): List<Cocktail>
     fun findById(id: String): Cocktail?
@@ -16,8 +16,8 @@ interface CocktailRepositoryInterface : KoinComponent {
     fun deleteById(id: String): Boolean
 }
 
-class CocktailRepository : CocktailRepositoryInterface {
-    private val client: MongoClient by inject()
+class CocktailRepositoryImpl(client: MongoClient) : CocktailRepository {
+//    private val client: MongoClient by inject()
     private val database = client.getDatabase("cocktail")
     private val cocktailCollection = database.getCollection<Cocktail>()
 
