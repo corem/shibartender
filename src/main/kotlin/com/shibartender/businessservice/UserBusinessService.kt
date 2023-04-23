@@ -1,7 +1,6 @@
 package com.shibartender.businessservice
 
 import com.shibartender.data.UserRepository
-import com.shibartender.data.UserRepositoryImpl
 import model.account.User
 import org.litote.kmongo.Id
 

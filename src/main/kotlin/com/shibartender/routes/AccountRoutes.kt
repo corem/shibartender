@@ -19,7 +19,15 @@ fun Route.accountRouting() {
 
     route("/account") {
         get {
-            call.respond(HttpStatusCode.Accepted, "Bonjour-Hi World")
+            call.respond(HttpStatusCode.Accepted, "Bonjour-Hi !")
+        }
+
+        post("/login") {
+            val user = call.receive<UserLoginDto>()
+            accountBusinessService.login(user.email, user.password)
+                ?.let { jwtPayload ->
+                    call.respond(jwtPayload.toDto())
+                } ?: call.respond(HttpStatusCode.BadRequest, ErrorResponse.BAD_REQUEST_RESPONSE)
         }
 
         post("/create") {
@@ -29,14 +37,6 @@ fun Route.accountRouting() {
                 ?.let { userId ->
                     call.response.headers.append("User-Id-Header", userId.toString())
                     call.respond(HttpStatusCode.Created)
-                } ?: call.respond(HttpStatusCode.BadRequest, ErrorResponse.BAD_REQUEST_RESPONSE)
-        }
-
-        post("/login") {
-            val user = call.receive<UserLoginDto>()
-            accountBusinessService.login(user.email, user.password)
-                ?.let { jwtPayload ->
-                    call.respond(jwtPayload.toDto())
                 } ?: call.respond(HttpStatusCode.BadRequest, ErrorResponse.BAD_REQUEST_RESPONSE)
         }
     }

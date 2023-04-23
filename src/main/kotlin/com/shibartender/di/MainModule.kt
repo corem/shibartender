@@ -7,24 +7,29 @@ import com.shibartender.data.CocktailRepository
 import com.shibartender.data.CocktailRepositoryImpl
 import com.shibartender.data.UserRepository
 import com.shibartender.data.UserRepositoryImpl
+import com.shibartender.service.MongoService
+import com.shibartender.service.MongoServiceImpl
 import com.shibartender.util.CryptographyService
 import com.shibartender.util.CryptographyServiceImpl
 import com.shibartender.util.JwtService
 import com.shibartender.util.JwtServiceImpl
+import org.koin.core.module.dsl.bind
+import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
-import org.litote.kmongo.KMongo
 
-val mainModule = module(createdAtStart = true) {
-    single<JwtService> { JwtServiceImpl() }
-    single<CryptographyService> { CryptographyServiceImpl() }
-//    factory { KMongo.createClient(System.getenv("MONGO_URI")) } // TODO: Env
-    factory { KMongo.createClient("mongodb://shibartender-mongo:27017") } // TODO: Env
+val mainModule = module {
+    // Utils
+    singleOf(::JwtServiceImpl) { bind<JwtService>() }
+    singleOf(::CryptographyServiceImpl) { bind<CryptographyService>() }
 
-    single<UserRepository> { UserRepositoryImpl(get()) }
-    single<CocktailRepository> { CocktailRepositoryImpl(get()) }
+    // Repository
+    singleOf(::MongoServiceImpl) { bind<MongoService>() }
+    singleOf(::UserRepositoryImpl) { bind<UserRepository>() }
+    singleOf(::CocktailRepositoryImpl) { bind<CocktailRepository>() }
 
-    single { UserBusinessService(get()) }
-    single { AccountBusinessService(get(), get()) }
-    single { CocktailBusinessService(get()) }
+    // Services
+    singleOf(::UserBusinessService)
+    singleOf(::AccountBusinessService)
+    singleOf(::CocktailBusinessService)
 }
 

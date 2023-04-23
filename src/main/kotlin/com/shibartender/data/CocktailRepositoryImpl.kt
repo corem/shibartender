@@ -1,10 +1,8 @@
 package com.shibartender.data
 
-import com.mongodb.client.MongoClient
+import com.shibartender.service.MongoService
 import model.drink.Cocktail
 import org.bson.types.ObjectId
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 import org.litote.kmongo.*
 import org.litote.kmongo.id.toId
 
@@ -16,9 +14,8 @@ interface CocktailRepository {
     fun deleteById(id: String): Boolean
 }
 
-class CocktailRepositoryImpl(client: MongoClient) : CocktailRepository {
-//    private val client: MongoClient by inject()
-    private val database = client.getDatabase("cocktail")
+class CocktailRepositoryImpl(private val client: MongoService) : CocktailRepository {
+    private val database = client.getService().getDatabase("cocktail")
     private val cocktailCollection = database.getCollection<Cocktail>()
 
     override fun create(cocktail: Cocktail): Id<Cocktail>? {

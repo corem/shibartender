@@ -1,10 +1,8 @@
 package com.shibartender.data
 
-import com.mongodb.client.MongoClient
+import com.shibartender.service.MongoService
 import model.account.User
 import org.bson.types.ObjectId
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 import org.litote.kmongo.*
 import org.litote.kmongo.id.toId
 
@@ -16,9 +14,8 @@ interface UserRepository {
     fun deleteById(id: String): Boolean
 }
 
-class UserRepositoryImpl(client: MongoClient) : UserRepository {
-//    private val client: MongoClient by inject()
-    private val database = client.getDatabase("user")
+class UserRepositoryImpl(private val client: MongoService) : UserRepository {
+    private val database = client.getService().getDatabase("user")
     private val userCollection = database.getCollection<User>()
 
     override fun create(user: User): Id<User>? {
