@@ -8,7 +8,7 @@ import io.ktor.server.routing.*
 fun Route.randomRouting() {
     route("/olivier") {
         get {
-            call.respond(HttpStatusCode.Accepted, "tg Brieux")
+            call.respond(HttpStatusCode.OK, "tg Brieux")
         }
     }
 }
