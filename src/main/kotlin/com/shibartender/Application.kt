@@ -10,11 +10,11 @@ import io.ktor.server.netty.*
 fun main(args: Array<String>): Unit = EngineMain.main(args)
 
 fun Application.module() {
-    println(environment.config.propertyOrNull("ktor.deployment.port")?.getString() ?: "Not found")
-    println(environment.config.propertyOrNull("ktor.jwt.secret")?.getString() ?: "Not found")
-    println(environment.config.propertyOrNull("ktor.jwt.issuer")?.getString() ?: "Not found")
-    println(environment.config.propertyOrNull("ktor.jwt.validity_ms")?.getString() ?: "Not found")
-    println(environment.config.propertyOrNull("ktor.mongo.uri")?.getString() ?: "Not found")
+//    val port = environment.config.propertyOrNull("ktor.deployment.port")?.getString()
+//    val jwtSecret = environment.config.propertyOrNull("ktor.jwt.secret")?.getString()
+//    val jwtIssuer = environment.config.propertyOrNull("ktor.jwt.issuer")?.getString()
+//    val jwtValidityToken = environment.config.propertyOrNull("ktor.jwt.validity_ms")?.getString()
+//    val mongoUri = environment.config.propertyOrNull("ktor.mongo.uri")?.getString()
 
     configureKoin()
     configureAuthentication()
