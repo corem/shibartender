@@ -5,7 +5,7 @@ val kotlin_version: String by project
 val logback_version: String by project
 val kmongo_version: String by project
 val jbcrypt_version: String by project
-//val hoplite_version: String by project
+val hoplite_version: String by project
 val kotest_version: String by project
 
 plugins {
@@ -40,8 +40,8 @@ dependencies {
     implementation("io.ktor:ktor-server-auth:$ktor_version")
     implementation("io.ktor:ktor-server-auth-jwt:$ktor_version")
 
-//    implementation("com.sksamuel.hoplite:hoplite-core:$hoplite_version")
-//    implementation("com.sksamuel.hoplite:hoplite-hocon:$hoplite_version")
+    implementation("com.sksamuel.hoplite:hoplite-core:$hoplite_version")
+    implementation("com.sksamuel.hoplite:hoplite-hocon:$hoplite_version")
 
     testImplementation("io.kotest:kotest-runner-junit5:$kotest_version")
 
